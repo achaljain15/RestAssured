@@ -7,6 +7,8 @@ import static org.hamcrest.Matchers.*;
 
 import java.util.concurrent.TimeUnit;
 
+import javax.xml.crypto.Data;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
         
@@ -27,8 +29,8 @@ public class FirstRestAss
 	@Test
 	public void validateResponse() {
 		given().get("https://reqres.in/api/users?id=6").
-		then().
-		statusCode(200).body("first_name", equalTo("Tracey"));
+		then().//.log().all();
+		statusCode(200).body("data.first_name", equalTo("Tracey"));
 		
 	}
 	}
